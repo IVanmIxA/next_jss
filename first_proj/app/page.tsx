@@ -23,6 +23,14 @@ const sections = [
     description: "Публикации и материалы — мысли в чистом виде, без лишнего шума.",
     meta: "100 записей",
   },
+  {
+    label: "Tasks",
+    href: "/tasks",
+    num: "03",
+    title: "Задачи",
+    description: "Список задач с отслеживанием статуса выполнения в реальном времени.",
+    meta: "10 задач",
+  },
 ];
 
 export default function Page() {
@@ -117,6 +125,9 @@ export default function Page() {
             <Link href="/posts" className="btn-outline">
               Читать посты <span>→</span>
             </Link>
+            <Link href="/tasks" className="btn-outline">
+              Задачи <span>→</span>
+            </Link>
           </div>
         </div>
 
@@ -157,7 +168,7 @@ export default function Page() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(2, 1fr)",
+            gridTemplateColumns: "repeat(3, 1fr)",
             gap: "1px",
             background: "var(--border)",
             border: "1px solid var(--border)",
