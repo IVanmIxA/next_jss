@@ -1,3 +1,4 @@
+import { cacheLife } from 'next/cache'
 import TaskList from "../components/TaskList/TaskList";
 
 type Todo = {
@@ -7,12 +8,18 @@ type Todo = {
   completed: boolean;
 };
 
-export default async function Page() {
+async function getTasks(): Promise<Todo[]> {
+  'use cache'
+  cacheLife('hours')
+
   const res = await fetch(
-    "https://jsonplaceholder.typicode.com/todos?_limit=10",
-    { cache: "no-store" }
+    "https://jsonplaceholder.typicode.com/todos?_limit=10"
   );
-  const tasks: Todo[] = await res.json();
+  return res.json();
+}
+
+export default async function Page() {
+  const tasks = await getTasks();
 
   return (
     <div style={{ minHeight: "100vh", background: "#f9fafb", padding: "48px 16px" }}>
