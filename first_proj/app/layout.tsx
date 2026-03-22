@@ -1,16 +1,37 @@
 import { ReactNode } from "react";
+import Link from "next/link";
+import "./globals.css";
 
-export default function RootLayout({
-  children,
-}: {
-  children: ReactNode;
-}) {
+
+
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ru">
       <body>
-        <header>Шапка сайта</header>
-        <main>{children}</main>
-        <footer>Подвал сайта</footer>
+        <header className="site-header">
+          <Link href="/" className="site-logo">
+            MNML
+          </Link>
+
+          <nav className="site-nav">
+            <Link href="/" className="nav-link">Главная</Link>
+            <Link href="/products" className="nav-link">Продукты</Link>
+          </nav>
+
+          <div className="status-badge">
+            <span className="status-dot" />
+            online
+          </div>
+        </header>
+
+        <main style={{ paddingTop: "60px", minHeight: "100vh" }}>
+          {children}
+        </main>
+
+        <footer className="site-footer">
+          <span className="footer-text">© 2025 MNML</span>
+          <span className="footer-text">built with Next.js</span>
+        </footer>
       </body>
     </html>
   );
