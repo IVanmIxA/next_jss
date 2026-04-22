@@ -2,7 +2,10 @@ import { ReactNode } from "react";
 import Link from "next/link";
 import "./globals.css";
 
-
+export const metadata = {
+  title: "MNML Store",
+  description: "Minimal products, maximal quality",
+};
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (

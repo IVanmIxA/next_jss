@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CurrentDate from "./CurrentDate";
 
 interface Post {
   userId: number;
@@ -27,6 +28,7 @@ async function getPosts(): Promise<Post[]> {
 
 export default async function PostsPage() {
   const posts = await getPosts();
+  <CurrentDate />; // ← Лаб. №6: текущая дата
 
   return (
     <div style={{ padding: "60px 40px", maxWidth: "960px" }}>
@@ -73,6 +75,33 @@ export default async function PostsPage() {
         >
           {posts.length} записей
         </p>
+
+        {/* ── Лаб. №6: дата и кнопка создания поста ── */}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            marginTop: "24px",
+            padding: "16px 20px",
+            border: "1px solid var(--border)",
+            background: "var(--bg-3)",
+          }}
+        >
+          <span
+            style={{
+              fontFamily: "var(--font-mono)",
+              fontSize: "12px",
+              color: "var(--text-muted)",
+            }}
+          >
+            <CurrentDate />
+          </span>
+          <Link href="/posts/create" className="btn-primary">
+            + Создать пост
+          </Link>
+        </div>
+        {/* ── конец Лаб. №6 ── */}
       </div>
 
       {/* Список постов */}

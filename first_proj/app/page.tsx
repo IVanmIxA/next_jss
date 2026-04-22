@@ -31,6 +31,14 @@ const sections = [
     description: "Список задач с отслеживанием статуса выполнения в реальном времени.",
     meta: "10 задач",
   },
+  {
+    label: "Register",
+    href: "/register",
+    num: "04",
+    title: "Регистрация",
+    description: "Создайте аккаунт с валидацией данных — имя, email, возраст и пароль.",
+    meta: "Лаб. №6",
+  },
 ];
 
 export default function Page() {
@@ -117,7 +125,7 @@ export default function Page() {
 
           <div
             className="animate-fade-up animate-fade-up-delay-3"
-            style={{ display: "flex", gap: "16px", alignItems: "center" }}
+            style={{ display: "flex", gap: "16px", alignItems: "center", flexWrap: "wrap" }}
           >
             <Link href="/products" className="btn-primary">
               Смотреть продукты <span>→</span>
@@ -127,6 +135,9 @@ export default function Page() {
             </Link>
             <Link href="/tasks" className="btn-outline">
               Задачи <span>→</span>
+            </Link>
+            <Link href="/register" className="btn-outline">
+              Регистрация <span>→</span>
             </Link>
           </div>
         </div>
@@ -168,7 +179,7 @@ export default function Page() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "repeat(3, 1fr)",
+            gridTemplateColumns: "repeat(4, 1fr)",
             gap: "1px",
             background: "var(--border)",
             border: "1px solid var(--border)",
